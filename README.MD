@@ -54,7 +54,7 @@ waktu 1 detik itu jika menggunakan Cocurrency Programming, bisa digunakan untuk 
 - Ukuran Goroutines sangat kecil, sekitar 2kb, jauh lebih kecil dibandingkan thread yang bisa sampai 1MB atau 1000kb
 - Namun tidak seperti thread yang berjalan parallel, goroutines berjalan secara concurennt
 
-Cara Kerja Goroutines
+**Cara Kerja Goroutines**
 - Sebenarnya, Goroutines dijalankan oleh GO Scheduler di dalam thread, dimana jumlah threadnya sebanyak GOMAXPROCS (biasanya sejumlah core CPU)
 - Jadi sebenernya, tidak bisa dibilang Goroutines itu sebagai pengganti thread, karena Goroutines itu sendiri berjalan diatas Thread
 - Namun yang mempermudah kita adalah, kita tidak perlu melakukan manajemen Thread secara manual, semua sudah diatur oleh Go Scheduler
