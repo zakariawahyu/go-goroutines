@@ -17,12 +17,12 @@ tapi kita ingin semua proses selesai terlebih dahulu sebelum aplikasi kita seles
 - Untuk menunggu semua proses selesai, kita bisa menggunakan method Wait()
  */
 
-func RunAsynchronus(group *sync.WaitGroup)  {
+func RunAsynchronus(group *sync.WaitGroup, count int)  {
 	defer group.Done()
 
 	group.Add(1)
 
-	fmt.Println("Hello")
+	fmt.Println("Hello : ", count)
 	time.Sleep(1 * time.Second)
 }
 
@@ -30,7 +30,7 @@ func TestWaitGroup(t *testing.T) {
 	group := &sync.WaitGroup{}
 
 	for i := 0; i < 100; i++ {
-		go RunAsynchronus(group)
+		go RunAsynchronus(group, i)
 	}
 
 	group.Wait()
