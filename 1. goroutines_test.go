@@ -17,13 +17,13 @@ Go Routines sangat ringan
 - Seperti yang sebelumnya dijelaskan, bahwa goroutine itu sangat ringan
 - Kita bisa membuat ribuan, bahkan sampai juataan go routines tanpa takut boros memory
 - Tidak seperti Thread yang ukuran berat, goroutine sangat ringan
- */
+*/
 
-func  RunHelloWorld()  {
+func RunHelloWorld() {
 	fmt.Println("Hello World")
 }
 
-func TestCreateGoroutine(t *testing.T)  {
+func TestCreateGoroutine(t *testing.T) {
 	// akan runing secara asynchronus (tidak akan ditunggu sampai test selesai)
 	// jika function return value, maka tidak akan bisa menamngkap valuenya
 	go RunHelloWorld()
@@ -34,7 +34,7 @@ func TestCreateGoroutine(t *testing.T)  {
 	time.Sleep(1 * time.Second)
 }
 
-func DisplayNumber(number int)  {
+func DisplayNumber(number int) {
 	println("Disaplay number : ", number)
 }
 
@@ -44,4 +44,18 @@ func TestManyGoroutine(t *testing.T) {
 	}
 
 	time.Sleep(5 * time.Second)
+}
+
+// Novalagung version
+func cetak(till int, message string) {
+	for i := 0; i < till; i++ {
+		fmt.Println((i + 1), message)
+	}
+}
+
+func TestGoroutine(t *testing.T) {
+	go cetak(500, "Apakabar")
+	cetak(500, "Hallo")
+
+	time.Sleep(time.Second)
 }
